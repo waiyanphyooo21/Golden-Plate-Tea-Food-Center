@@ -1,0 +1,1460 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- 
+====================================================
+  Golden Plate Tea & Food Center
+  Developed by: Wai Yan Phyo Oo
+  Year: 2025
+  Website: waiyanphyooo.online
+  Email: dm@waiyanphyooo.online
+  Notes: This website is built using HTML, CSS, JS, Bootstrap, and Cloudinary for image hosting. Will update tech stack in future.
+====================================================
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golden Plate Tea & Food Center</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dmv4mpf8f/image/upload/v1754534343/GP_Logo_fav1ni.jpg">
+
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+    <!-- SEO Meta Description -->
+    <meta name="description" content="Golden Plate Tea & Food Center – Enjoy authentic Myanmar tea and traditional delicious food in a cozy atmosphere. Visit us in Nay Pyi Taw." />
+    <meta name="author" content="Golden Plate Tea & Food Center" />
+
+    <!-- Open Graph meta tags for Facebook -->
+    <meta property="og:site_name" content="Golden Plate Tea & Food Center" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://waiyanphyooo.online" /> 
+    <meta property="og:title" content="Golden Plate Tea & Food Center" />
+    <meta property="og:description" content="Welcome to Golden Plate Tea & Food Center — delicious food and drinks with a golden touch." />
+    <meta property="og:image" content="https://res.cloudinary.com/dmv4mpf8f/image/upload/v1754449434/goldenplate_hero_image_ua0w0g.jpg" />  
+
+<!-- Facebook page link -->
+<meta property="article:publisher" content="https://www.facebook.com/share/17ATQP7eMQ/?mibextid=wwXIfr" />
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts for Burmese support -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,300&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* --primary-color: #d4af37; */
+            --primary-color: #b38e2c;
+            --secondary-color: #8b4513;
+            --accent-color: #ff6b35;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Noto Sans Myanmar', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .burmese-text {
+            font-family: 'Noto Sans Myanmar', sans-serif;
+            font-weight: 400;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1050;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 5px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .language-toggle button {
+            border: none;
+            background: transparent;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .language-toggle button.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://res.cloudinary.com/dmv4mpf8f/image/upload/v1754534345/GP_HeroImage_byxdzb.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .brand-name {
+            color: var(--primary-color);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 500; 
+            font-family: 'Times New Roman', Times, serif;
+            font-style: italic;
+        }
+
+        .tagline {
+            font-size: clamp(1.2rem, 2.5vw, 2rem);
+            font-weight: 400;
+            color: #d4af37;
+            letter-spacing: 1px;
+        }
+
+
+        .hero-content p {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn-primary-custom {
+            background: var(--primary-color);
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+        }
+
+
+        /* Section Styling */
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--bg-light);
+        }
+
+        .about-image {
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: translateY(-5px);
+        }
+ 
+        /* Reservation */
+        .reservation-info {
+            background: var(--bg-light);
+            border-radius: 15px;
+            padding: 40px 20px;
+            margin: 40px auto;
+            max-width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            color: var(--text-dark);
+        }
+
+        .reservation-info .section-title {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .reservation-info p {
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .reservation-info a {
+            text-decoration: none;
+        }
+
+        .reservation-info a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* Menu Section */
+        .menu-section {
+            background: white;
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            position: relative;
+        }
+
+        .search-input {
+            border-radius: 50px;
+            padding: 15px 50px 15px 20px;
+            border: 2px solid #e9ecef;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
+        }
+
+        .search-btn {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--primary-color);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        /* Menu Tabs - Modern Rounded Style */
+        .nav-tabs {
+            border: none;
+            justify-content: center;
+            margin-bottom: 50px;
+            gap: 10px;
+        }
+
+        .nav-tabs .nav-link {
+            border: none;
+            color: var(--text-light);
+            font-weight: 500;
+            padding: 12px 24px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            background: var(--bg-light);
+            border: 1px solid #e9ecef;
+            font-size: 0.9rem;
+        }
+
+        .nav-tabs .nav-link.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .nav-tabs .nav-link:hover:not(.active) {
+            background: white;
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .accordion-button {
+            background: var(--bg-light);
+            border: none;
+            font-weight: 600;
+            color: var(--text-dark);
+            padding: 20px;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .menu-item {
+            border: 1px solid #e9ecef;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+            background: white;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .menu-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .menu-item-content {
+            padding: 20px;
+        }
+
+        .menu-item h5 {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        .menu-item p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--bg-light);
+        }
+
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .contact-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 15px;
+            color: var(--primary-color);
+            width: 20px;
+        }
+         
+        .social-icons {
+            display: flex;
+            gap: 15px; 
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a i {
+            color: white !important;
+            font-size: 1.2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        .social-icons a:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 15px 0; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50px; 
+        }
+
+        .footer p {
+            margin: 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            
+            .row.mb-5 > .col-md-6:first-child {
+                margin-bottom: 15px; /* space between stacked images on mobile */
+            }
+
+            .about-section::after {
+                width: 500px;       
+                top: 250px;          
+                right: -75px;        
+                opacity: 0.2;       
+            }
+            
+            .nav-tabs {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .nav-tabs .nav-link {
+                padding: 10px 16px;
+                font-size: 0.85rem;
+            }
+
+            .hero-section {
+                background-size: cover;          
+                background-position: center top; 
+                background-repeat: no-repeat;
+            }
+
+            .language-toggle {
+                top: 10px;
+                right: 10px;
+            }
+            
+            .hero-content {
+                padding: 0 20px;
+            }
+            
+            .section-padding {
+                padding: 60px 0;
+            }
+            
+            .nav-tabs .nav-link {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .menu-item img {
+                height: 150px;
+            }
+        }
+
+        /* Carousel Arrow Color visible */
+        #menuDesignCarousel .carousel-control-prev-icon,
+        #menuDesignCarousel .carousel-control-next-icon {
+        filter: invert(1); 
+        background-color: rgba(0, 0, 0, 0.5); 
+        border-radius: 50%; 
+        width: 40px;
+        height: 40px;
+        }
+
+
+        /* Hidden class for language switching */
+        .hidden {
+            display: none !important;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Lazy loading placeholder */
+        .lazy-placeholder {
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button type="button" class="lang-btn active" data-lang="en">EN</button>
+        <button type="button" class="lang-btn" data-lang="my">မြန်မာ</button>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home" data-aos="fade-up" data-aos-duration="1000">
+        <div class="hero-content">
+            <h1>
+                <span class="brand-name lang-text" data-en="GOLDEN PLATE" data-my="Golden Plate"></span>
+                <br>
+                <span class="tagline lang-text" data-en="Tea & Food Center" data-my="Tea & Food Center"></span>
+            </h1>
+            <p class="lang-text" data-en="Where Taste Meets Tradition" data-my="Where Taste Meets Tradition"></p>
+            <button class="btn btn-primary-custom lang-text" 
+                    data-en="Explore Our Menu" 
+                    data-my="မီနူးများ ကြည့်ရန်" 
+                    onclick="scrollToMenu()"></button>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about-section section-padding" id="about" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+            <h2 class="section-title lang-text" data-en="About Golden Plate" data-my="Golden Plate အကြောင်း"></h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://res.cloudinary.com/dmv4mpf8f/image/upload/v1754449434/goldenplate_hero_image_ua0w0g.jpg" alt="Golden Plate Restaurant" class="img-fluid about-image">
+                </div>
+                <div class="col-lg-6">
+                    <div class="lang-content" data-lang="en">
+                        <h3 class="mb-4">A Legacy of Authentic Flavors</h3>
+                        <p class="mb-4">For over 7 years, Golden Plate Tea & Food Center has been serving the finest traditional Myanmar cuisine alongside beloved international dishes. Our journey began with a simple mission: to bring families together through exceptional food and warm hospitality.</p>
+                        <p class="mb-4">From our signature Golden Tea to our carefully crafted seasonal juices, every dish tells a story of tradition, quality, and passion. We source the freshest local ingredients and prepare each meal with the same care and attention that has made us a beloved destination for food lovers.</p>
+                        <p>Whether you're starting your day with our hearty breakfast selection or ending it with our satisfying dinner options, Golden Plate promises an unforgettable culinary experience that celebrates the rich flavors of Myanmar.</p>
+                    </div>
+                    <div class="lang-content hidden" data-lang="my">
+                        <h3 class="mb-4 burmese-text">Golden Plate Legacy</h3>
+                        <p class="mb-4 burmese-text">၇ နှစ်ကျော်အတွင်း၊ Golden Plate Tea & Food Center သည် မြန်မာ့ရိုးရာ အစားအစာများအပြင် နိုင်ငံတကာမီနူးများကိုလည်း အရသာပြည့်ဝစွာ တင်ဆက်ပေးလျက်ရှိပါသည်။ စတင်ချိန်ကတည်းက မိသားစုနှင့် သူငယ်ချင်းများ အားလုံးကို တူညီနေရာတစ်ခုမှာ အရသာပြည့်ဝသော အစားအစာနှင့် နွေးထွေးသော ဝန်ဆောင်မှုဖြင့် ဆုံဆည်းစေဖို့ ရည်မှန်းခဲ့ပါသည်။</p>
+                        <p class="mb-4 burmese-text">ကျွန်ုပ်တို့၏ signature ဖြစ်သော ရွှေလ္ဘက်ရည် မှ စတင်၍ ဂရုတစိုက် ပြုလုပ်ထားသော ရာသီစာ သစ်သီးဖျော်ရည်များအထိ၊ ဟင်းလျာတိုင်းသည် ရိုးရာ၊ အရည်အသွေးနှင့် အစွမ်းထက်သောစိတ်အားနှင့် ရိုးရာအရသာတို့ ပေါင်းစပ်နေပါသည်။ ကျွန်ုပ်တို့သည် အလတ်ဆတ်ဆုံး၊ အကောင်းဆုံး ပါဝင်ပစ္စည်းများကိုသာ ရွေးချယ်အသုံးပြုပြီး အရသာနှင့် ဂုဏ်သိက္ခာကို ထိန်းသိမ်းထားပါသည်။</p>
+                        <p class="burmese-text">မနက်စာအထူးမီနူးများဖြင့် သင့်တနေ့တာကို စတင်စေဖို့ဖြစ်စေ၊ နေ့လည်စာ ၊ ညစာတို့တွင် အပြည့်အဝကျေနပ်စေဖို့ဖြစ်စေ၊ Golden Plate က မြန်မာ့ရိုးရာအရသာများကို ချစ်ခင်သူတိုင်းအတွက် မမေ့နိုင်သော အစားအစာအတွေ့အကြုံကို ရရှိရန် ဖိတ်ခေါ်ပါသည်</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservations & Bulk Orders Section -->
+    <section class="reservation-info section-padding" id="reservations">
+        <div class="container">
+            <h2 class="section-title lang-text" data-en="Reservations & Bulk Orders" data-my="ကြိုတင်မှာယူခြင်းနှင့် အော်ဒါပွဲများ"></h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-1">
+                    <div class="lang-content" data-lang="en">
+                        <p class="mb-4">
+                            We gladly accept <strong>table reservations</strong>, including <strong>private room bookings</strong> for special occasions.
+                            For <strong>bulk orders</strong>, please contact us in advance to ensure timely preparation and delivery.
+                        </p>
+                        <p>
+                            Call us at <a href="tel:+YourPhoneNumber" style="color: var(--primary-color); font-weight: 600;">+959 441 760 726</a> or visit our store to book now!
+                        </p>
+                    </div>
+                    <div class="lang-content hidden" data-lang="my">
+                        <p class="mb-4 burmese-text">
+                            ကျွန်ုပ်တို့သည် အထူးပွဲများအတွက် <strong>ကြိုတင်မှာယူခြင်း</strong>၊ <strong>သီးသန့် အခန်းမှာယူခြင်း</strong>ကို လက်ခံပါသည်။
+                            <strong>အော်ဒါပွဲ</strong>များအတွက်လည်း အချိန်မီပြင်ဆင်နိုင်ရန် ကြိုတင်ဆက်သွယ်ရန် လိုအပ်ပါသည်။
+                        </p>
+                        <p class="burmese-text">
+                            ဆက်သွယ်ရန် <a href="tel:+YourPhoneNumber" style="color: var(--primary-color); font-weight: 600;">+950 441 760 726</a> သို့မဟုတ် ဆိုင်သို့ လာရောက်စုံစမ်းပေးပါ။
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-2 mb-6 mb-lg-0">
+                    <img src="https://res.cloudinary.com/dmv4mpf8f/image/upload/v1754449434/goldenplate_hero_image_ua0w0g.jpg" alt="Golden Plate Restaurant" class="img-fluid about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Menu Design Section -->
+    <section id="menuDesignSection" class="section-padding" style="background: var(--bg-light);" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container" style="max-width: 600px;">
+        <h3 class="section-title text-center mb-4">Menu Design</h3>
+        <div id="menuDesignCarousel" class="carousel slide rounded shadow-sm" data-bs-ride="carousel" style="overflow: hidden;">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="https://res.cloudinary.com/dmv4mpf8f/image/upload/v1755009381/photo_2025-08-12_21.05.58_rth8zd.jpg" class="d-block w-100" alt="Menu Image 1" style="object-fit: cover; ">
+            </div>
+            <div class="carousel-item">
+            <img src="https://res.cloudinary.com/dmv4mpf8f/image/upload/v1755009382/photo_2025-08-12_21.06.02_umlayz.jpg" class="d-block w-100" alt="Menu Image 2" style="object-fit: cover; ">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#menuDesignCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#menuDesignCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
+    </div>
+    </section>
+
+
+    <!-- Menu Section -->
+    <section class="menu-section section-padding" id="menu" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+            <h2 class="section-title lang-text" data-en="Our Menu" data-my="ကျွန်ုပ်တို့၏ မီနူး"></h2>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" class="form-control search-input lang-text" id="menuSearch" data-en="Search menu items..." data-my="မီနူး ရှာဖွေပါ..." placeholder="Search menu items...">
+                <button class="search-btn" type="button">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+
+            <!-- Menu Tabs -->
+            <ul class="nav nav-tabs justify-content-center mb-4" id="menuTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active lang-text" id="breakfast-tab" data-bs-toggle="tab" data-bs-target="#breakfast" type="button" role="tab" data-en="Breakfast" data-my="လက်ဖက်ရည်နှင့် မုန့်မျိုးစုံ"></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link lang-text" id="lunch-tab" data-bs-toggle="tab" data-bs-target="#lunch" type="button" role="tab" data-en="Lunch" data-my="ထမင်း"></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link lang-text" id="shan-tab" data-bs-toggle="tab" data-bs-target="#shan" type="button" role="tab" data-en="Shan Food" data-my="ရှမ်းအစားစာ"></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link lang-text" id="noodles-tab" data-bs-toggle="tab" data-bs-target="#noodles" type="button" role="tab" data-en="Noodles & Salads" data-my="မြီးရှည်နှင့်အသုပ်"></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link lang-text" id="dinsum-tab" data-bs-toggle="tab" data-bs-target="#dinsum" type="button" role="tab" data-en="Dinsum" data-my="ဒင်ဆမ်း"></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link lang-text" id="juices-tab" data-bs-toggle="tab" data-bs-target="#juices" type="button" role="tab" data-en="Seasonal Juices" data-my="ရာသီစာသစ်သီးဖျော်ရည်များ"></button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link lang-text" id="fried-tab" data-bs-toggle="tab" data-bs-target="#fried" type="button" role="tab" data-en="Fried Items" data-my="အကြော်"></button>
+                </li>
+            </ul>
+
+            <!-- Two side-by-side images added
+            <div class="row mb-5">
+            <div class="col-md-6">
+                <img src="https://res.cloudinary.com/dmv4mpf8f/image/upload/v1754449434/goldenplate_hero_image_ua0w0g.jpg" alt="Menu Image 1" class="img-fluid rounded shadow-sm">
+            </div>
+            <div class="col-md-6">
+                <img src="https://res.cloudinary.com/dmv4mpf8f/image/upload/v1754449434/goldenplate_hero_image_ua0w0g.jpg" alt="Menu Image 2" class="img-fluid rounded shadow-sm">
+            </div>
+            </div> -->
+
+            <!-- Menu Content -->
+            <div class="tab-content" id="menuTabContent">
+                <!-- Menu items will be loaded here dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section section-padding" id="contact" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+            <h2 class="section-title lang-text" data-en="Visit Us" data-my=""></h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-info">
+                        <h4 class="lang-text" data-en="Contact Information" data-my="ဆက်သွယ်ရန် အချက်အလက်များ"></h4>
+                        <div class="lang-content" data-lang="en">
+                            <p><i class="bi bi-geo-alt-fill"></i> S - 171 ၊ ဧရာဝတီလမ်းမကြီး ၊ သပြေကုန်း ၊ နေပြည်တော်</p>
+                            <p><i class="bi bi-telephone-fill"></i> +95 9 441 760 726</p>
+                            <p><i class="bi bi-envelope-fill"></i> admin@goldenplate.shop</p>
+                            <p><i class="bi bi-clock-fill"></i> Daily: 6:00 AM - 6:00 PM</p>
+                        </div>
+                        <div class="lang-content hidden" data-lang="my">
+                            <p class="burmese-text"><i class="bi bi-geo-alt-fill"></i> S - 171 ၊ ဧရာဝတီလမ်းမကြိး ၊ သပြေကုန်း ၊ နေပြည်တော်</p>
+                            <p class="burmese-text"><i class="bi bi-telephone-fill"></i> +95 9 441 760 726</p>
+                            <p class="burmese-text"><i class="bi bi-envelope-fill"></i> admin@goldenplate.shop</p>
+                            <p class="burmese-text"><i class="bi bi-clock-fill"></i> နေ့စဉ်: နံနက် ၆:၀၀ - ညနေ ၆:၀၀</p>
+                        </div>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/share/17ATQP7eMQ/?mibextid=wwXIfr" aria-label="Facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                            <a href="mailto:admin@goldenplate.shop" aria-label="Email" target="_blank"><i class="bi bi-envelope-fill"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d575.2340146429524!2d96.11617960849918!3d19.73507170143372!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c8bde81290cefd%3A0xe954956beaebe5a1!2sGolden%20Plate%20Tea%20%26%20Food%20Center!5e1!3m2!1sen!2smm!4v1754395566607!5m2!1sen!2smm" width="100%" height="300" style="border:0; border-radius: 15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="lang-text" 
+                    data-en="&copy; 2025 Golden Plate Tea & Food Center. All rights reserved." 
+                    data-my="&copy; 2025 Golden Plate Tea & Food Center. All rights reserved.">
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+    AOS.init();
+    </script>
+
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Menu data with bilingual support
+        const menuData = {
+            breakfast: {
+                en: "Breakfast",
+                my: "လက်ဖက်ရည်နှင့် မုန့်မျိုးစုံ",
+                subcategories: {
+                    tea: {
+                        en: "Tea & Coffee",
+                        my: "လက်ဖက်ရည်နှင့် ကော်ဖီ",
+                        items: [
+                            {
+                                name: { en: "Shwe Lat Phat Yay", my: "ရွှေလ္ဘက်ရည်" },
+                                description: { en: "Golden Milk Tea with edible gold flakes", my: "စားသုံးနိုင်သော ရွှေဖက်များနှင့် မလိုင်ဖက်များပါသော ရွှေလ္ဘက်ရည်" },
+                                price: "2000 MMK",
+                                image: "https://res.cloudinary.com/dmv4mpf8f/image/upload/v1754449434/shwetea_knxbav.png"
+                            },
+                            {
+                                name: { en: "Gyin Lat Phat Yay", my: "ဂျင်းလ္ဘက်ရည်" },
+                                description: { en: "spicy traditional tea with fresh ginger flavor", my: "ဂျင်းဖြင့်ဖျော်စပ်ထားသော လ္ဘက်ရည်" },
+                                price: "2000 MMK",
+                                image: "https://res.cloudinary.com/dmv4mpf8f/image/upload/v1754449434/shwetea_knxbav.png"
+                            },
+                            {
+                                name: { en: "Lat Phat Yay(normal, sweet,....)", my: "လ္ဘက်ရည်(ပုံမှန်၊ချိုစိမ့်၊....)" },
+                                description: { en: "Myanmar Traditional Tea", my: "မြန်မာလ္ဘက်ရည်" },
+                                price: "2000 MMK",
+                                image: "https://res.cloudinary.com/dmv4mpf8f/image/upload/v1754449434/shwetea_knxbav.png"
+                            }
+                        ]
+                    },
+                    snacks: {
+                        en: "Morning Snacks",
+                        my: "မနက်စာ မုန့်များ",
+                        items: [
+                            {
+                                name: { en: "Samosa", my: "စမူဆာ" },
+                                description: { en: "Crispy pastry with potato filling", my: "အာလူးဖြင့် ကြွပ်ရွပ်အောင် ကြော်ထားသော စမူဆာ" },
+                                price: "500 MMK",
+                                image: "https://res.cloudinary.com/dmv4mpf8f/image/upload/v1754449434/somosa_vx25ge.png"
+                            },
+                            {
+                                name: { en: "Nan Bya", my: "နံပြား" },
+                                description: { en: "Traditional Myanmar flatbread", my: "မြန်မာ ရိုးရာ မုန့်ပြား" },
+                                price: "800 MMK",
+                                image: "https://res.cloudinary.com/dmv4mpf8f/image/upload/v1754449434/somosa_vx25ge.png"
+                            },
+                            {
+                                name: { en: "Htamin Kyaw", my: "ထမင်းကြော်" },
+                                description: { en: "Rice porridge with chicken", my: "ကြက်ထမင်းကြော်" },
+                                price: "2000 MMK",
+                                image: "https://res.cloudinary.com/dmv4mpf8f/image/upload/v1754449434/somosa_vx25ge.png"
+                            }
+                        ]
+                    }
+                }
+            },
+            lunch: {
+                en: "Lunch",
+                my: "ထမင်း",
+                subcategories: {
+                    rice: {
+                        en: "Rice Dishes",
+                        my: "ထမင်းဟင်းများ",
+                        items: [
+                            {
+                                name: { en: "Chicken Curry Rice", my: "ကြက်သားဟင်းနှင့် ထမင်း" },
+                                description: { en: "Tender chicken in rich curry sauce", my: "ဗမာကြက်နှင့် ထမင်း" },
+                                price: "2500 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Pork Curry Rice", my: "ဝက်သားဟင်းနှင့် ထမင်း" },
+                                description: { en: "Spicy pork curry with vegetables", my: "ဝက်သားဟင်း နှင့် ထမင်း" },
+                                price: "2800 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Fish Curry Rice", my: "ငါးဟင်းနှင့် ထမင်း" },
+                                description: { en: "Fresh fish in tamarind curry", my: "မန်ကျည်းရည်ဖြင့် လတ်ဆတ်သော ငါးဟင်း" },
+                                price: "3000 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            }
+                        ]
+                    },
+                    vegetables: {
+                        en: "Salad Dishes",
+                        my: "အသုပ်များ",
+                        items: [
+                            {
+                                name: { en: "Samosa Salad", my: "စမူဆာသုပ်" },
+                                description: { en: "Crispy pastry with potato filling Salad", my: "စမူဆာအသုပ်" },
+                                price: "2000 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Chicken Salad", my: "ကြက်သားသုပ်" },
+                                description: { en: "Miexd Chicken Salad", my: "ကြက်သားသုပ်" },
+                                price: "1800 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            }
+                        ]
+                    }
+                }
+            },
+            shan: {
+                en: "Shan Food",
+                my: "ရှမ်းအစားစာ",
+                subcategories: {
+                    noodles: {
+                        en: "Shan Noodles",
+                        my: "ရှမ်းခေါက်ဆွဲ",
+                        items: [
+                            {
+                                name: { en: "Shan Khaut Swe", my: "ရှမ်းခေါက်ဆွဲ" },
+                                description: { en: "Traditional Shan noodles", my: "ရှမ်းရိုးရာ ခေါက်ဆွဲ" },
+                                price: "2200 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Shan Khaut Swe Thoke", my: "ရှမ်းခေါက်ဆွဲသုပ်" },
+                                description: { en: "Dry Shan noodles salad", my: "ရှမ်းခေါက်ဆွဲ အသုပ်" },
+                                price: "2000 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            }
+                        ]
+                    },
+                    rice: {
+                        en: "Shan Rice",
+                        my: "ရှမ်းထမင်း",
+                        items: [
+                            {
+                                name: { en: "Shan Rice", my: "ရှမ်းထမင်း" },
+                                description: { en: "Fragrant rice with Shan-style curry", my: "ရှမ်းပုံစံ ဟင်းနှင့် မွှေးကြိုင်သော ထမင်း" },
+                                price: "2500 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            }
+                        ]
+                    }
+                }
+            },
+            noodles: {
+                en: "Noodles & Salads",
+                my: "မြီးရှည်နှင့်အသုပ်",
+                subcategories: {
+                    noodles: {
+                        en: "Noodle Soups",
+                        my: "ခေါက်ဆွဲများ",
+                        items: [
+                            {
+                                name: { en: "Mohinga", my: "မုန့်ဟင်းခါး" },
+                                description: { en: "Myanmar's Mohinga - fish noodle soup", my: "မြန်မာမုန့်ဟင်းခါး" },
+                                price: "1800 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Ohn No Khaut Swe", my: "အုန်းနို့ခေါက်ဆွဲ" },
+                                description: { en: "Coconut noodle soup", my: "အုန်းနို့ ခေါက်ဆွဲ" },
+                                price: "2200 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Nan Gyi Thoke", my: "နန်းကြီးသုပ်" },
+                                description: { en: "Thick rice noodle salad", my: "ခေါက်ဆွဲသုပ်" },
+                                price: "2000 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            }
+                        ]
+                    },
+                    salads: {
+                        en: "Traditional Salads",
+                        my: "ရိုးရာ အသုပ်များ",
+                        items: [
+                            {
+                                name: { en: "Tea Leaf Salad", my: "လက်ဖက်သုပ်" },
+                                description: { en: "Myanmar's famous fermented tea leaf salad", my: "မြန်မာ လက်ဖက်သုပ်" },
+                                price: "1500 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Ginger Salad", my: "ဂျင်းသုပ်" },
+                                description: { en: "Fresh ginger salad with peanuts", my: "မြေပဲပါ လတ်ဆတ်သော ဂျင်းသုပ်" },
+                                price: "1200 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            }
+                        ]
+                    }
+                }
+            },
+            dinsum: {
+                en: "Dim Sum",
+                my: "ဒင်ဆမ်း",
+                subcategories: {
+                    steamed: {
+                        en: "Steamed Dim Sum",
+                        my: "အိုးနဲ့အခြောက်ကျွေး",
+                        items: [
+                            {
+                                name: { en: "Shrimp Dumplings", my: "ပုစွန်" },
+                                description: { en: "Delicate dumplings filled with fresh shrimp", my: "လတ်ဆတ်သော ပုစွန်များ ဖြည့်ထားသော" },
+                                price: "3500 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Pork Siu Mai", my: "ဝက်သားစီမိုင်" },
+                                description: { en: "Open-faced dumplings with pork and shrimp", my: "ဝက်သားနှင့် ပုစွန်ပါသော" },
+                                price: "3200 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            }
+                        ]
+                    },
+                    fried: {
+                        en: "Fried Dim Sum",
+                        my: "အကြော်ဒင်ဆမ်း",
+                        items: [
+                            {
+                                name: { en: "Spring Rolls", my: "နွေဦးလိပ်" },
+                                description: { en: "Crispy rolls filled with vegetables and meat", my: "ဟင်းသီးဟင်းရွက်နှင့် အသားဖြင့် အကြော်လိပ်" },
+                                price: "2500 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Fried Wontons", my: "ဝံတုံးကြော်" },
+                                description: { en: "Golden crispy wontons with savory filling", my: "ဝံတုံးကြော်" },
+                                price: "2600 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            }
+                        ]
+                    },
+                    buns: {
+                        en: "Steamed Buns",
+                        my: "ပေါင်မုန့်နွေး",
+                        items: [
+                            {
+                                name: { en: "BBQ Pork Bun", my: "ဝက်သား BBQ ပေါင်မုန့်" },
+                                description: { en: "Soft steamed bun filled with BBQ pork", my: "ပေါင်မုန့်နွေးတွင် ဝက်သား BBQ ဖြည့်ထားသည်" },
+                                price: "2800 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Lotus Seed Bun", my: "ကြာဇံပေါင်မုန့်" },
+                                description: { en: "Sweet steamed bun with lotus seed paste", my: "ကြာဇံမုန့်ရည်ဖြင့် ပြည့်ဝသော ပေါင်မုန့်နွေး" },
+                                price: "2700 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            }
+                        ]
+                    }
+                }
+            },
+            juices: {
+                en: "Seasonal Juices",
+                my: "ရာသီစာသစ်သီးဖျော်ရည်များ",
+                subcategories: {
+                    fresh: {
+                        en: "Fresh Juices",
+                        my: "လတ်ဆတ်သော ဖျော်ရည်များ",
+                        items: [
+                            {
+                                name: { en: "Mango Juice", my: "သရက်သီးဖျော်ရည်" },
+                                description: { en: "Fresh seasonal mango juice", my: "ရာသီအလိုက် လတ်ဆတ်သော သရက်သီးဖျော်ရည်" },
+                                price: "1200 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Watermelon Juice", my: "ဖရဲသီးဖျော်ရည်" },
+                                description: { en: "Refreshing watermelon juice", my: "လန်းဆန်းစေသော ဖရဲသီးဖျော်ရည်" },
+                                price: "1000 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Orange Juice", my: "လိမ္မော်သီးဖျော်ရည်" },
+                                description: { en: "Fresh squeezed orange juice", my: "လတ်လတ်ဆတ်ဆတ် ညှစ်ထားသော လိမ္မော်သီးဖျော်ရည်" },
+                                price: "1100 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            }
+                        ]
+                    },
+                    smoothies: {
+                        en: "Smoothies",
+                        my: "ဖျော်ရည်များ",
+                        items: [
+                            {
+                                name: { en: "Avocado Smoothie", my: "ထောပတ်သီး ဖျော်ရည်" },
+                                description: { en: "Creamy avocado smoothie with milk", my: "နို့ပါ ကရင်မ်ထူထူ ထောပတ်သီး ဖျော်ရည်" },
+                                price: "1500 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Banana Smoothie", my: "ငှက်ပျောသီး ဖျော်ရည်" },
+                                description: { en: "Sweet banana smoothie", my: "ချိုမြိန်သော ငှက်ပျောသီး ဖျော်ရည်" },
+                                price: "1200 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            }
+                        ]
+                    }
+                }
+            },
+            fried: {
+                en: "Fried Items",
+                my: "အကြော်",
+                subcategories: {
+                    snacks: {
+                        en: "Fried Snacks",
+                        my: "အကြော်များ",
+                        items: [
+                            {
+                                name: { en: "Spring Rolls", my: "ကော်ပြန့်" },
+                                description: { en: "Crispy vegetable spring rolls", my: "ကြွပ်ရွပ်သော ဟင်းရွက် ကော်ပြန့်" },
+                                price: "800 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Fried Tofu", my: "တိုဟူးကြော်" },
+                                description: { en: "Golden fried tofu cubes", my: "ရွှေရောင် တိုဟူးကြော် လုံးများ" },
+                                price: "1000 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Fried Chicken", my: "ကြက်သားကြော်" },
+                                description: { en: "Crispy fried chicken pieces", my: "ကြွပ်ရွပ်သော ကြက်သားကြော်" },
+                                price: "2500 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            }
+                        ]
+                    },
+                    rice: {
+                        en: "Fried Rice",
+                        my: "ထမင်းကြော်",
+                        items: [
+                            {
+                                name: { en: "Chicken Fried Rice", my: "ကြက်သား ထမင်းကြော်" },
+                                description: { en: "Wok-fried rice with chicken and vegetables", my: "ကြက်သားနှင့် ဟင်းရွက်များပါ ထမင်းကြော်" },
+                                price: "2200 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            },
+                            {
+                                name: { en: "Seafood Fried Rice", my: "ပင်လယ်စာ ထမင်းကြော်" },
+                                description: { en: "Mixed seafood fried rice", my: "ပင်လယ်စာ ရောစပ် ထမင်းကြော်" },
+                                price: "2800 MMK",
+                                image: "/placeholder.svg?height=200&width=300"
+                            }
+                        ]
+                    }
+                }
+            }
+        };
+
+        // Current language
+        let currentLanguage = 'en';
+        let allMenuItems = [];
+
+        // default tab
+        let currentTabId = 'breakfast'; 
+
+        // Language switching functionality (EXACT SAME AS ORIGINAL)
+        document.addEventListener('DOMContentLoaded', function() {
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const langTexts = document.querySelectorAll('.lang-text');
+            const langContents = document.querySelectorAll('.lang-content');
+
+            // Initialize menu
+            loadMenuData();
+            updateLanguage();
+
+            langButtons.forEach(btn => {
+            btn.addEventListener('click', function () {
+                const lang = this.getAttribute('data-lang');
+                if (lang !== currentLanguage) {
+                    currentLanguage = lang;
+
+                    // Update active button
+                    langButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Capture current tab before language switch
+                    const activeTab = document.querySelector('.tab-pane.active');
+                    if (activeTab) {
+                        currentTabId = activeTab.id;
+                    }
+
+                    updateLanguage();
+                    loadMenuData(); // 
+                }
+            });
+        });
+
+
+            // Search functionality
+            const searchInput = document.getElementById('menuSearch');
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                filterMenuItems(searchTerm);
+            });
+
+            // Lazy loading for images
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy-placeholder');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            // Observe all images for lazy loading
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        });
+
+        function updateLanguage() {
+            // Toggle language spans visibility
+            document.querySelectorAll('.menu-item-wrapper').forEach(wrapper => {
+                if (currentLanguage === 'en') {
+                    wrapper.querySelectorAll('.text-en').forEach(el => el.classList.remove('hidden'));
+                    wrapper.querySelectorAll('.text-my').forEach(el => el.classList.add('hidden'));
+                } else {
+                    wrapper.querySelectorAll('.text-en').forEach(el => el.classList.add('hidden'));
+                    wrapper.querySelectorAll('.text-my').forEach(el => el.classList.remove('hidden'));
+                }
+            });
+
+            // Rest of your updateLanguage() for other elements
+            document.querySelectorAll('.lang-text').forEach(element => {
+                const text = element.getAttribute(`data-${currentLanguage}`);
+                if (text) {
+                    if (element.tagName === 'INPUT') {
+                        element.placeholder = text;
+                    } else {
+                        element.innerHTML = text;
+                    }
+                    
+                    if (currentLanguage === 'my') {
+                        element.classList.add('burmese-text');
+                    } else {
+                        element.classList.remove('burmese-text');
+                    }
+                }
+            });
+
+            document.querySelectorAll('.lang-content').forEach(content => {
+                const lang = content.getAttribute('data-lang');
+                if (lang === currentLanguage) {
+                    content.classList.remove('hidden');
+                } else {
+                    content.classList.add('hidden');
+                }
+            });
+        }
+
+
+        function loadMenuData() {
+            const menuTabContent = document.getElementById('menuTabContent');
+            menuTabContent.innerHTML = '';
+            allMenuItems = [];
+
+            Object.keys(menuData).forEach((categoryKey, index) => {
+                const category = menuData[categoryKey];
+                //const isActive = index === 0 ? 'show active' : '';
+                const isActive = categoryKey === currentTabId ? 'show active' : '';
+
+                const tabPane = document.createElement('div');
+                tabPane.className = `tab-pane fade ${isActive}`;
+                tabPane.id = categoryKey;
+                tabPane.setAttribute('role', 'tabpanel');
+
+                let accordionHTML = `<div class="accordion" id="accordion-${categoryKey}">`;
+
+                Object.keys(category.subcategories).forEach((subKey, subIndex) => {
+                    const subcategory = category.subcategories[subKey];
+                    const collapseId = `collapse-${categoryKey}-${subKey}`;
+                    const isExpanded = subIndex === 0 ? 'show' : '';
+                    const isCollapsed = subIndex === 0 ? '' : 'collapsed';
+
+                    accordionHTML += `
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="heading-${categoryKey}-${subKey}">
+                                <button class="accordion-button ${isCollapsed}" type="button" data-bs-toggle="collapse" data-bs-target="#${collapseId}">
+                                    ${subcategory[currentLanguage]}
+                                </button>
+                            </h2>
+                            <div id="${collapseId}" class="accordion-collapse collapse ${isExpanded}" data-bs-parent="#accordion-${categoryKey}">
+                                <div class="accordion-body">
+                                    <div class="row" id="items-${categoryKey}-${subKey}">
+                                        ${generateMenuItems(subcategory.items, categoryKey, subKey)}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    // Add items to search array
+                    subcategory.items.forEach(item => {
+                        allMenuItems.push({
+                            ...item,
+                            category: categoryKey,
+                            subcategory: subKey
+                        });
+                    });
+                });
+
+                accordionHTML += '</div>';
+                tabPane.innerHTML = accordionHTML;
+                menuTabContent.appendChild(tabPane);
+            });
+
+            // Setup lazy loading for new images
+            setupLazyLoading();
+        }
+
+
+        function generateMenuItems(items, categoryKey, subKey) {
+            return items.map(item => `
+                <div class="col-md-6 col-lg-4 menu-item-wrapper" data-category="${categoryKey}" data-subcategory="${subKey}">
+                    <div class="menu-item">
+                        <img data-src="${item.image}" alt="${item.name.en}" class="lazy-placeholder">
+                        <div class="menu-item-content">
+                            <h5>
+                                <span class="text-en ${currentLanguage === 'en' ? '' : 'hidden'}">${item.name.en}</span>
+                                <span class="text-my ${currentLanguage === 'my' ? '' : 'hidden'} burmese-text">${item.name.my}</span>
+                            </h5>
+                            <p>
+                                <span class="text-en ${currentLanguage === 'en' ? '' : 'hidden'}">${item.description.en}</span>
+                                <span class="text-my ${currentLanguage === 'my' ? '' : 'hidden'} burmese-text">${item.description.my}</span>
+                            </p>
+                            <div class="price">${item.price}</div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+
+        function setupLazyLoading() {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy-placeholder');
+                        img.onload = () => {
+                            img.style.opacity = '1';
+                        };
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.3s ease';
+                imageObserver.observe(img);
+            });
+        }
+
+        function filterMenuItems(searchTerm) {
+            searchTerm = searchTerm.trim().toLowerCase();
+
+            const menuItems = document.querySelectorAll('.menu-item-wrapper');
+            let matchedAccordions = new Set();
+
+            // If search is empty → reset everything to default
+            if (searchTerm === '') {
+                // Show all items
+                menuItems.forEach(item => item.style.display = 'block');
+
+                // Show all subcategories again
+                document.querySelectorAll('.accordion-item').forEach(item => item.style.display = '');
+
+                // Reset tabs: first tab active, others inactive
+                const tabPanes = document.querySelectorAll('.tab-pane');
+                const tabButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
+                tabPanes.forEach((pane, idx) => {
+                    if (idx === 0) {
+                        pane.classList.add('active', 'show');
+                    } else {
+                        pane.classList.remove('active', 'show');
+                    }
+                });
+                tabButtons.forEach((btn, idx) => {
+                    if (idx === 0) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+
+                // Reset accordions: first accordion open, rest closed
+                document.querySelectorAll('.accordion-collapse').forEach((acc, index) => {
+                    if (index === 0) {
+                        acc.classList.add('show');
+                        acc.previousElementSibling?.querySelector('.accordion-button')?.classList.remove('collapsed');
+                    } else {
+                        acc.classList.remove('show');
+                        acc.previousElementSibling?.querySelector('.accordion-button')?.classList.add('collapsed');
+                    }
+                });
+
+                return; 
+            }
+
+            // Clear active/show classes from all tabs & tab buttons initially
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                pane.classList.remove('active', 'show');
+            });
+            document.querySelectorAll('[data-bs-toggle="tab"]').forEach(btn => btn.classList.remove('active'));
+
+            // Hide subcategories first
+            document.querySelectorAll('.accordion-item').forEach(item => item.style.display = 'none');
+
+            // Search normally
+            menuItems.forEach(item => {
+                const textContent = item.innerText.toLowerCase();
+
+                if (textContent.includes(searchTerm)) {
+                    item.style.display = 'block';
+
+                    // Show the parent subcategory (accordion item)
+                    const accordionItem = item.closest('.accordion-item');
+                    if (accordionItem) accordionItem.style.display = '';
+
+                    let accordionParent = item.closest('.accordion-collapse');
+                    if (accordionParent) matchedAccordions.add(accordionParent);
+
+                    // Activate the tab pane containing this item
+                    const tabPane = item.closest('.tab-pane');
+                    if (tabPane) {
+                        tabPane.classList.add('active', 'show');
+
+                        const tabId = tabPane.id;
+                        const tabBtn = document.querySelector(`[data-bs-target="#${tabId}"]`);
+                        if (tabBtn) tabBtn.classList.add('active');
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            matchedAccordions.forEach(acc => {
+                acc.classList.add('show');
+                let button = acc.previousElementSibling?.querySelector('.accordion-button');
+                if (button) button.classList.remove('collapsed');
+            });
+        }
+
+
+
+        function scrollToMenu() {
+            document.getElementById('menu').scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+<script>
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("keydown", e => {
+        if (e.ctrlKey && (e.key === "u" || e.key === "U" || e.key === "s" || e.key === "S")) {
+            e.preventDefault();
+        }
+        if (e.keyCode === 123) { 
+            e.preventDefault();
+        }
+    });
+</script>
+</html>
